@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<p>request: {{request}}</p>
+<p>username: {{user.username | upper}}</p>
+<p>age: {{user.age}}</p>
+<h3>四大仙草</h3>
+<ul>
+    <li>{{books.0}}</li>
+    <li>{{books.1}}</li>
+    <li>{{books.2}}</li>
+    <li>{{books.3}}</li>
+</ul>
+<p>Pai: {{Pai | round(1)}}</p>
+<h3>影视</h3>
+<ul>
+    {% if user.age < 18 %}
+    {% for movie in movies.juvenile_movie%}
+    <li>{{movie}}</li>
+    {% endfor %}
+    {% else %}
+    {% for movie in movies.adult_movie %}
+    <li>{{movie}}</li>
+    {% endfor %}
+    {% endif %}
+</ul>
+</body>
+</html>
